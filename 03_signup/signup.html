@@ -33,16 +33,14 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active selected" href="./signup.html">Sign up</a>
-                        </li>
-
-                        <li class="nav-item">
                             <a class="nav-link active" href="../04_courses/courses.html">Courses</a>
                         </li>
                     </ul>
 
-                    <form class="d-flex" action="../02_login/login.html">
-                        <button class="btn btn-light" type="submit">Log In</button>
+                    <form action="../02_login/login.html" class="me-4">
+                        <button class="btn btn-light">
+                            Log In
+                        </button>
                     </form>
                 </div>
             </div>
@@ -63,19 +61,19 @@
                             <div class="card bg-card">
                                 <div class="card-body">
                                     <h5 class="card-title pb-4">Sign up form</h5>
-                                    <form action="">
+                                    <form method="post" action="../07_php/signup.php">
                                         <div class="input-group mb-3">
-                                            <input type="email" class="form-control fg-main-2" placeholder="E-mail user." aria-label="E-mail user.">
+                                            <input type="email" id="email" name="email" class="form-control fg-main-2" placeholder="E-mail user." aria-label="E-mail user.">
                                             <span class="input-group-text" id="basic-addon2">@example.com</span>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Username." aria-label="Username.">
+                                            <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Username." aria-label="Username.">
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input type="date" class="form-control fg-main-2">
+                                            <input type="date" id="born_date" name="born_date" class="form-control fg-main-2">
                                         </div>
                                         <div class="input-group">
-                                            <button class="btn btn-light bg-btn-1 btn-1" type="submit">Send</button>
+                                            <button type="submit" name="submit" class="btn btn-light bg-btn-1 btn-1">Send</button>
                                         </div>
                                     </form>
                                 </div>
@@ -85,6 +83,107 @@
                 </section>
             </section>
         </main>
+        <footer class="text-center text-lg-start bg-card fg-card text-muted">
+            <!-- Section: Social media -->
+            <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+                <!-- Left -->
+                <div class="me-5 d-none d-lg-block">
+                    <span>Get connected with us on social networks:</span>
+                </div>
+                <!-- Left -->
+            
+                <!-- Right -->
+                <div>
+                    <a href="https://www.linkedin.com/in/miguel-m-v%C3%A1zquez-mart%C3%ADnez-5b7079112/" class="me-4 text-reset">
+                        <i class='bx bxl-linkedin-square'></i>
+                    </a>
+                    <a href="https://github.com/DevLawyer" class="me-4 text-reset">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                </div>
+                <!-- Right -->
+            </section>
+            <!-- Section: Social media -->
+        
+            <!-- Section: Links  -->
+            <section class="">
+                <div class="container text-center text-md-start mt-5">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                EduCode Academy
+                            </h6>
+                            <p>
+                            This website is a project to comply with the fourth practice of the HLC Module of High School El Majuelo.
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+            
+                        <!-- Grid column -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                Courses
+                            </h6>
+                            <p>
+                            <a href="../04_courses/courses.html" class="text-reset">HTML</a>
+                            </p>
+                            <p>
+                            <a href="../04_courses/courses.html" class="text-reset">CSS</a>
+                            </p>
+                            <p>
+                            <a href="../04_courses/courses.html" class="text-reset">Java Script</a>
+                            </p>
+                            <p>
+                            <a href="../04_courses/courses.html" class="text-reset">PHP</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+            
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                                Useful links
+                            </h6>
+                            <p>
+                            <a href="https://www.w3schools.com/" class="text-reset">W3Schools</a>
+                            </p>
+                            <p>
+                            <a href="https://www.php.net/manual/en/index.php" class="text-reset">PHP Manual</a>
+                            </p>
+                            <p>
+                            <a href="http://www.iesmajuelo.com/" class="text-reset">I.E.S. El Majuelo</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+            
+                        <!-- Grid column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                            Contact
+                            </h6>
+                            <p>C. Enrique Granados, 43, 41960 Gines, Sevilla</p>
+                            <p>mvazmar625@g.educaand.es</p>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+            </section>
+            <!-- Section: Links  -->
+        
+            <!-- Section: License -->
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            License:
+            <a class="text-reset fw-bold" href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12">EUPL-1.2</a>
+            </div>
+            <!-- Section: License -->
+        </footer>
 
         <!-- SCRIPTS SECTION -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

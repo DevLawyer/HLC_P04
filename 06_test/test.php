@@ -1,8 +1,13 @@
+<?php 
+    session_start();
+    if($_SESSION['activo']!=true){
+        header("location:../01_index/index.html");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>ECA - LogIn</title>
         <link rel="icon" href="../00_resources/images/EduCodeA_Icon.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,13 +38,21 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link active selected" href="./user.html">Profile</a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link active" href="../04_courses/courses.html">Courses</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../04_courses/user_courses.html">My Courses</a>
                         </li>
                     </ul>
 
-                    <form class="d-flex me-4" action="../03_signup/signup.html">
-                        <button class="btn btn-light">
-                            Sign up
+                    <form class="d-flex" action="./login.html">
+                        <button class="btn btn-light me-4" type="submit">
+                            Log Out
                         </button>
                     </form>
                 </div>
@@ -51,24 +64,25 @@
         <!-- MAIN CONTAINER -->
         <main class="container-fluid bg-main p-5">
             <section class="row justify-content-center">
-                <article class="col-md-4 card text-center bg-transparent border-0 h-50 d-block">
-                    <img src="../00_resources/images/LogIn_Logo.png" alt="EduCode Academy Logo" class="img-fluid rounded-start mt-4 w-50">
-                    <p class="card-body">
-                        <form class="card-text" method="post" action="../07_php/login.php">
-                            <div class="input-group">
-                                <input type="email" id="login_email" name="login_email" class="form-control fg-main-2" placeholder="E-mail user." aria-label="E-mail user.">
+                <article class="card mb-3 bg-transparent border-light fg-main" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4 text-center">
+                            <img src="../00_resources/images/lvl_gold.png" class="img-fluid rounded-start mt-4" alt="User Level">
+                            <small>Level</small><br/>
+                            <button class="btn btn-light bg-btn-1 btn-1 mt-4 mb-4">Delete Profile</button>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">User e-mail</h5>
+                                <p class="card-text">Username</p>
+                                <p class="card-text"><small class="text-muted">Victories:</small></p>
+                                <p class="card-text"><small class="text-muted">Defeats:</small></p>
                             </div>
-                            <div class="input-group mt-2">
-                                <button type="submit" id="submit" name="submit" class="btn btn-light" >Log In</button>
-                            </div>
-                        </form>
-                    </p>
-                </activle>
+                        </div>
+                    </div>
+                </article>
             </section>
         </main>
-
-        
-
         <footer class="text-center text-lg-start bg-card fg-card text-muted">
             <!-- Section: Social media -->
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">

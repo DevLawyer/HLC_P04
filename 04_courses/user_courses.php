@@ -1,8 +1,14 @@
+<?php 
+    session_start();
+    if($_SESSION['activo']!=true){
+        header("location:../01_index/index.html");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>ECA - LogIn</title>
+        <title>ECA - MyCourses</title>
         <link rel="icon" href="../00_resources/images/EduCodeA_Icon.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,17 +35,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="../01_index/index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" href="../01_index/index.html">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="../04_courses/courses.html">Courses</a>
+                            <a class="nav-link active" href="./courses.html">Courses</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active selected" href="./user_courses.php">My Courses</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../05_user/user.php">Profile</a>
                         </li>
                     </ul>
-
-                    <form class="d-flex me-4" action="../03_signup/signup.html">
-                        <button class="btn btn-light">
-                            Sign up
+                   
+                    <form class="d-flex" action="./login.html">
+                        <button class="btn btn-light me-4" type="submit">
+                            Log Out
                         </button>
                     </form>
                 </div>
@@ -50,25 +64,18 @@
     <body>
         <!-- MAIN CONTAINER -->
         <main class="container-fluid bg-main p-5">
-            <section class="row justify-content-center">
-                <article class="col-md-4 card text-center bg-transparent border-0 h-50 d-block">
-                    <img src="../00_resources/images/LogIn_Logo.png" alt="EduCode Academy Logo" class="img-fluid rounded-start mt-4 w-50">
-                    <p class="card-body">
-                        <form class="card-text" method="post" action="../07_php/login.php">
-                            <div class="input-group">
-                                <input type="email" id="login_email" name="login_email" class="form-control fg-main-2" placeholder="E-mail user." aria-label="E-mail user.">
-                            </div>
-                            <div class="input-group mt-2">
-                                <button type="submit" id="submit" name="submit" class="btn btn-light" >Log In</button>
-                            </div>
-                        </form>
-                    </p>
-                </activle>
+            <section class="row">
+                <article class="col h-100 text-center">
+                    <h1 class="fg-main">
+                        MY COURSES
+                    </h1>
+
+                    
+                </article>
             </section>
+               
+    
         </main>
-
-        
-
         <footer class="text-center text-lg-start bg-card fg-card text-muted">
             <!-- Section: Social media -->
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -115,16 +122,16 @@
                                 Courses
                             </h6>
                             <p>
-                            <a href="../04_courses/courses.html" class="text-reset">HTML</a>
+                            <a href="./courses.html" class="text-reset">HTML</a>
                             </p>
                             <p>
-                            <a href="../04_courses/courses.html" class="text-reset">CSS</a>
+                            <a href="./courses.html" class="text-reset">CSS</a>
                             </p>
                             <p>
-                            <a href="../04_courses/courses.html" class="text-reset">Java Script</a>
+                            <a href="./courses.html" class="text-reset">Java Script</a>
                             </p>
                             <p>
-                            <a href="../04_courses/courses.html" class="text-reset">PHP</a>
+                            <a href="./courses.html" class="text-reset">PHP</a>
                             </p>
                         </div>
                         <!-- Grid column -->
