@@ -67,7 +67,7 @@
                         <div class="col-md-4 text-center">
                             <img src="
                                 <?php
-                                    $i = $_SESSION['nivel'];
+                                    $i = $_SESSION['victorias']-$_SESSION['derrotas'];
                                     if ($i < 5) {
                                         echo "../00_resources/images/lvl_bronze.png";
                                     } elseif ($i >= 5 && $i <= 10) {

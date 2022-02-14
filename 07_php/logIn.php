@@ -32,7 +32,6 @@
 				$_SESSION['edad']= calculateAge($jug['fecha_nac']);
                 $_SESSION['victorias']=$jug['IFNULL(a_good,0)'];
                 $_SESSION['derrotas']=$jug['IFNULL(a_bad,0)'];
-                $_SESSION['nivel']=$jug['IFNULL(a_good,0)']-$jug['IFNULL(a_bad,0)'];
                 $_SESSION['activo']=true;
 				$_SESSION['curso1']=$jug['course1'];				
 				$_SESSION['curso2']=$jug['course2'];
