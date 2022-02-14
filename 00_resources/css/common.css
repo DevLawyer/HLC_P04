@@ -67,3 +67,18 @@
     background-color: #8197a6;
     color: #003247;
 }
+
+.btn-2{
+    background-color: #8197a6 !important;
+    color: #003247 !important;
+}
+
+.btn-2:hover{
+    background-color: #003247 !important;
+    color: #e8e8e4 !important;
+}
+
+ul.answers{
+    text-decoration: none;
+    list-style-type: none !important;
+}

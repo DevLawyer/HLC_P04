@@ -1,0 +1,39 @@
+&iquest;Cu&aacute;l es el lenguaje est&aacute;ndar espec&iacute;fico para aplicar estilos de presentaci&oacute;n a nuestras p&aacute;ginas web?
+Javascript.
+Flash.
+CSS. Ok
+PHP.
+
+&iquest;Cu&aacute;l crees que es la mejor manera de aplicar estilos a una p&aacute;gina web?
+Incluir los estilos en las etiquetas HTML para que se carguen y ejecuten antes.
+Incluirlos en un fichero externo vinculado a ese fichero HTML. Ok
+Incluirlos en la secci&oacute;n cabecera ('head') para agruparlos en un mismo sitio en la misma p&aacute;gina.
+Incluirlos en un fichero php externo.
+
+&iquest;Para que sirve el atributo 'class'?
+Para clasificar el tipo de enlace ('a') que estamos definiendo: 'salto' interno, v&iacute;nculo interno o externo.
+Es espec&iacute;fico para indicar el color de la fuente que queremos aplicar, Por ejemplo: p class="red".
+Para aplicar unos determinados estilos a los elementos que tenga la misma clase. Ok
+Para llamar a un fichero php.
+
+&iquest;Qué est&aacute; mal en esta regla de estilo?: .cuadro { border: 1px blue dotted padding: 10px 5px; }
+Falta un ';' (punto y coma) al final de la declaraci&oacute;n del estilo 'border'. Ok
+Falta una ',' (coma) entre los dos valores de la propiedad padding (10px 5px).
+No se puede poner un '.' (punto) al inicio de una declaraci&oacute;n (antes de la palabra 'cuadro').
+No falta nada.
+
+&iquest;C&oacute;mo se define un color de fondo para todas las etiquetas "p" en CSS?
+p.all {background-color:red;}
+p {background-color:red;} Ok
+#p {background-color:red;}
+.p {background-color:red;}
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('2', '1', '&iquest;Cu&aacute;l es el lenguaje est&aacute;ndar espec&iacute;fico para aplicar estilos de presentaci&oacute;n a nuestras p&aacute;ginas web?', 'Javascript.', 'Flash.', 'CSS', 'PHP', 'answer3');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('2', '2', '&iquest;Cu&aacute;l crees que es la mejor manera de aplicar estilos a una p&aacute;gina web?', 'Incluir los estilos en las etiquetas HTML para que se carguen y ejecuten antes.', 'Incluirlos en un fichero externo vinculado a ese fichero HTML.', 'Incluirlos en la secci&oacute;n cabecera (head) para agruparlos en un mismo sitio en la misma p&aacute;gina.', 'Incluirlos en un fichero php externo.', 'answer2');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('2', '3', '&iquest;Para que sirve el atributo class?', 'Para clasificar el tipo de enlace (a) que estamos definiendo: salto interno, v&iacute;nculo interno o externo.', 'Es espec&iacute;fico para indicar el color de la fuente que queremos aplicar, Por ejemplo: p class="red".', 'Para aplicar unos determinados estilos a los elementos que tenga la misma clase.', 'Para llamar a un fichero php.', 'answer3');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('2', '4', '&iquest;Qu&eacute; est&aacute; mal en esta regla de estilo?: .cuadro { border: 1px blue dotted padding: 10px 5px; }', 'Falta un ; (punto y coma) al final de la declaraci&oacute;n del estilo border.', 'Falta una , (coma) entre los dos valores de la propiedad padding (10px 5px).', 'No se puede poner un . (punto) al inicio de una declaraci&oacute;n (antes de la palabra cuadro).', 'No falta nada.', 'answer1');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('2', '5', '&iquest;C&oacute;mo se define un color de fondo para todas las etiquetas "p" en CSS?', 'p.all {background-color:red;}', 'p {background-color:red;}', '#p {background-color:red;}', '.p {background-color:red;}', 'answer2');

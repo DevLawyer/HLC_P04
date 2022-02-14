@@ -1,0 +1,39 @@
+&iquest;Qué formato tienen las p&aacute;ginas HTML?
+Son ficheros de texto especiales. Solo pueden leerlos los navegadores, un editor de texto normal no podr&iacute;a abrirlo.
+>Son ficheros de texto. Podemos leer su contenido con cualquier procesador de texto.
+Son ficheros binarios compilados. No se pueden leer, solo ejecutar en un navegador.
+Son ficheros de de texto que no pueden contener ningún otro lenguaje distinto a html.
+
+&iquest;Cu&aacute;l es la versi&oacute;n actualmente vigente del est&aacute;ndar HTML?
+HTML 3.
+HTML 6.
+HTML 4.
+&gt;HTML 5.
+
+&iquest;Cuál es la estructura de una p&aacute;gina Web? Elige de las siguientes cu&aacute;l es el que muestra las secciones correctas.
+&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;.....&lt;/head&gt; &lt;body&gt;.....&lt;/body&gt; &lt;/html&gt;
+>&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;.....&lt;/head&gt; &lt;body&gt;.....&lt;/body&gt; &lt;footer&gt;....&lt;/footer&gt; &lt;/html&gt;
+&lt;!DOCTYPE html&gt; &lt;body&gt; &lt;head&gt;.....&lt;/head&gt; &lt;html&gt;.....&lt;/html&gt; &lt;/body&gt;
+&lt;!DOCTYPE html&gt; &lt;head&gt;.....&lt;/head&gt; &lt;body&gt;....&lt;/body&gt; &lt;footer&gt;.....&lt;/footer&gt;
+
+&iquest;Cu&aacute;l de estas etiquetas ayudar&iacute;a a que los acentos se vieran bien en una p&aacute;gina web?
+>&lt;meta charset="UTF-8"&gt;
+&lt;language="es"&gt;
+&lt;meta ASCII="yes"&gt;
+&lt;accentuation="on"&gt;
+
+&iquest;C&oacute;mo se etiqueta un p&aacute;rrafo en HTML?
+(p)Esto es un p&aacute;rrafo.(p)
+&lt;p="Esto es un p&aacute;rrafo"&gt;
+>&lt;p&gt;Esto es un p&aacute;rrafo.&lt;/p&gt;
+&lt;p&gt;Esto es un p&aacute;rrafo.&lt;p&gt;
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('1', '1', '&iquest;Qu&eacute; formato tienen las p&aacute;ginas HTML?', 'Son ficheros de texto especiales. Solo pueden leerlos los navegadores, un editor de texto normal no podr&iacute;a abrirlo.', 'Son ficheros de texto. Podemos leer su contenido con cualquier procesador de texto.', 'Son ficheros binarios compilados. No se pueden leer, solo ejecutar en un navegador.', 'Son ficheros de de texto que no pueden contener ning&uacute;n otro lenguaje distinto a html.', 'answer2');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('1', '2', '&iquest;Cu&aacute;l es la versi&oacute;n actualmente vigente del est&aacute;ndar HTML?', 'HTML 3','HTML 4','HTML 6','HTML 5','answer4');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('1', '3', '&iquest;Cu&aacute;l es la estructura de una p&aacute;gina Web? Elige de las siguientes cu&aacute;l es el que muestra las secciones correctas.', '&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;.....&lt;/head&gt; &lt;body&gt;.....&lt;/body&gt; &lt;/html&gt;','&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;.....&lt;/head&gt; &lt;body&gt;.....&lt;/body&gt; &lt;footer&gt;....&lt;/footer&gt; &lt;/html&gt;','&lt;!DOCTYPE html&gt; &lt;body&gt; &lt;head&gt;.....&lt;/head&gt; &lt;html&gt;.....&lt;/html&gt; &lt;/body&gt;','&lt;!DOCTYPE html&gt; &lt;head&gt;.....&lt;/head&gt; &lt;body&gt;....&lt;/body&gt; &lt;footer&gt;.....&lt;/footer&gt;','answer2');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('1', '4', '&iquest;Cu&aacute;l de estas etiquetas ayudar&iacute;a a que los acentos se vieran bien en una p&aacute;gina web?', '&lt;meta charset="UTF-8"&gt;','&lt;language="es"&gt;','&lt;meta ASCII="yes"&gt;','&lt;accentuation="on"&gt;','answer2');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('1', '5', '&iquest;C&oacute;mo se etiqueta un p&aacute;rrafo en HTML?', '(p)Esto es un p&aacute;rrafo.(p)','&lt;p="Esto es un p&aacute;rrafo"&gt;','&lt;p&gt;Esto es un p&aacute;rrafo.&lt;/p&gt;','&lt;p&gt;Esto es un p&aacute;rrafo.&lt;p&gt;','answer3');

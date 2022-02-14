@@ -1,0 +1,41 @@
+¿En qu&eacute; lugar se ejecuta generalmente el c&oacute;digo JavaScript?
+Servidor.
+Cliente (ordenador propio). Ok
+Servidor cloud &uacute;nicamente.
+Cliente con servicios especiales.
+
+
+¿Cu&aacute;les de estas son marcas para la inserci&oacute;n del c&oacute;digo JavaScript en las p&aacute;ginas HTML?
+&lt;javascript _code&gt; y &lt;/javascript_code&gt;
+&lt;script&gt; y &lt;/script&gt; Ok
+&lt;?script&gt; y &lt;script?&gt;
+&lt;? y ?&gt;
+
+La llamada al c&oacute;digo Javascript debe colocarse en:
+La secci&oacute;n Body de la p&aacute;gina.
+Antes de la etiqueta HTML.
+Puede colocarse en la secci&oacute;n Head o en Body. Ok
+Debe colocarse en el Footer.
+
+Para terminar las instrucciones en Javascript se utiliza:
+Un punto y coma. Ok
+Un punto y coma o un salto de &iacute;.
+La sentencia End.
+Nada.
+
+Para concatenar cadenas de caracteres en Javascript se usa el car&aacute;cter:
+& (ampersand)
++ (m&aacute;s) Ok
+. (punto)
+* (por)
+
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('3', '1', '&iquest;En qu&eacute; lugar se ejecuta generalmente el c&oacute;digo JavaScript?', 'Servidor.', 'Cliente (ordenador propio).', 'Servidor cloud &uacute;nicamente.', 'Cliente con servicios especiales.', 'answer2');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('3', '2', '¿Cu&aacute;les de estas son marcas para la inserci&oacute;n del c&oacute;digo JavaScript en las p&aacute;ginas HTML?', '&lt;javascript _code&gt; y &lt;/javascript_code&gt;', '&lt;script&gt; y &lt;/script&gt;', '&lt;?script&gt; y &lt;script?&gt;', '&lt;? y ?&gt;', 'answer2');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('3', '3', 'La llamada al c&oacute;digo Javascript debe colocarse en:', 'La secci&oacute;n Body de la p&aacute;gina.', 'Antes de la etiqueta HTML.', 'Puede colocarse en la secci&oacute;n Head o en Body.', 'Debe colocarse en el Footer.', 'answer3');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('3', '4', 'Para terminar las instrucciones en Javascript se utiliza:', 'Un punto y coma.', 'Un punto y coma o un salto de &iacute;.', 'La sentencia End.', 'Nada.', 'answer1');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('3', '5', 'Para concatenar cadenas de caracteres en Javascript se usa el car&aacute;cter:', '&amp; (ampersand)', '+ (m&aacute;s)', '. (punto)', '* (por)', 'answer2');

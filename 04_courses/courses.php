@@ -1,23 +1,23 @@
 <?php 
     session_start();
-    if($_SESSION['activo']!=true){
-        header("location:../01_index/index.php");
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title><?php echo $_SESSION['email']?></title>
+        <title>Courses</title>
         <link rel="icon" href="../00_resources/images/EduCodeA_Icon.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
         <link href="../00_resources/css/common.css" rel="stylesheet" >
+        
     </head>
 
     <header>
+        
+
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
             <div class="container-fluid">
                 <img src="../00_resources/images/EduCodeA_Logo.png" alt="EduCode Academy Logo" height="60" class="d-inline-block align-text-top m-4">
@@ -36,23 +36,42 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="../04_courses/courses.php">Courses</a>
+                            <a class="nav-link active selected" href="./courses.php">Courses</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../04_courses/user_courses.php">My Courses</a>
-                        </li>
+                        <?php
+                            if($_SESSION['activo']==true){
+                                echo '<li class="nav-item">';
+                                echo'<a class="nav-link active" href="../04_courses/user_courses.php">My Courses</a>';
+                                echo'</li>';
 
-                        <li class="nav-item">
-                            <a class="nav-link active selected" href="./user.php">Profile</a>
-                        </li>
+                                echo'<li class="nav-item">';
+                                echo'<a class="nav-link active" href="../05_user/user.php">Profile</a>';
+                                echo'</li>';
+                            }
+                        ?>
                     </ul>
-
-                    <form class="d-flex" action="../07_php/logout.php">
-                        <button class="btn btn-light me-4" type="submit">
-                            Log out
-                        </button>
-                    </form>
+                    
+                    <?php
+                        if($_SESSION['activo']!=true){
+                            echo'<form class="d-flex me-4" action="../03_signup/signup.php">';
+                            echo'<button class="btn btn-light">';
+                            echo'Sign up';
+                            echo'</button>';
+                            echo'</form>';
+                            echo'<form action="../02_login/login.php">';
+                            echo'<button class="btn btn-light me-4">';
+                            echo'Log in';
+                            echo'</button>';
+                            echo'</form>';
+                        } else {
+                            echo'<form action="../07_php/logout.php">';
+                            echo'<button class="btn btn-light me-4">';
+                            echo'Log out';
+                            echo'</button>';
+                            echo'</form>';
+                        }
+                    ?>
                 </div>
             </div>
         </nav>
@@ -61,59 +80,87 @@
     <body>
         <!-- MAIN CONTAINER -->
         <main class="container-fluid bg-main p-5">
-            <section class="row justify-content-center">
-                <article class="card mb-3 bg-transparent border-light fg-main" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4 text-center">
-                            <img src="
-                                <?php
-                                    $i = $_SESSION['nivel'];
-                                    if ($i < 5) {
-                                        echo "../00_resources/images/lvl_bronze.png";
-                                    } elseif ($i >= 5 && $i <= 10) {
-                                        echo "../00_resources/images/lvl_silver.png";
-                                    } elseif ($i > 10) {
-                                        echo "../00_resources/images/lvl_gold.png";
-                                    }
-                                ?>
-                            " class="img-fluid rounded-start mt-4" alt="User Level">
-                            
-                            <small>Level</small><br/>
-
-                            <button class="btn btn-light m-4 fg-main bg-transparent" onclick="document.getElementById('modal_confirm').style.display='block'">Delete User</button>
-
-                            <div id="modal_confirm" class="modal">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content bg-card fg-card border-light border-2">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Confirm Delete User</h5>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Are you sure to delete this user?</p>
-                                        </div>
-                                        <form class="modal-footer" method="post" action="../07_php/deleteUser.php">
-                                            <button type="button" class="btn btn-secondary" onclick="document.getElementById('modal_confirm').style.display='none'">Close</button>
-                                            <button type="submit" id="submit" name="submit" class="btn btn-danger" onclick="document.getElementById('modal_confirm').style.display='none'">Delete</button>
-                                        </form>
-                                    </div>
+            <section class="row">
+                
+                <section class="col-6 text-center d-none d-lg-block">
+                    <img src="../00_resources/images/Courses_Logo.png" alt="EduCode Academy Logo" class="d-inline-block align-text-top m-4 h-50 sticky-top">
+                </section>
+                <section class="col">
+                    <section class="row p-4">
+                        <article class="col-6">
+                            <div class="card bg-card fg-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">HTML</h5>
+                                    <p class="card-text">Learn all you need to create a great web site and become a web developer.</p>
+                                    <a href="
+                                    <?php
+                                        if($_SESSION['activo']==true){
+                                            echo '../04_courses/user_courses.php';
+                                        } else {
+                                            echo '../04_courses/courses.php';
+                                        }
+                                    ?>
+                                    " class="btn btn-1">Learn</a>
                                 </div>
-                            </div> 
-
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <?php echo'<h5 class="card-title">'.$_SESSION['email'].'</h5>'?>
-                                <?php echo'<p class="card-text">Nombre: '.$_SESSION['nombre'].'</br>'?>
-                                <?php echo'Edad: '.$_SESSION['edad'].'</p>'?>
-                                <?php echo'<p class="card-text"><small class="text-muted">Victories: '.$_SESSION['victorias'].'</small></br>'?>
-                                <?php echo'<small class="text-muted">Defeats: '.$_SESSION['derrotas'].'</small></p>'?>
                             </div>
-                        </div>
-                    </div>
-                </article>
+                        </article>
+                        <article class="col-6">
+                            <div class="card bg-card fg-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">CSS</h5>
+                                    <p class="card-text">If you want to create a website with awesome design learn CSS to do this.</p>
+                                    <a href="
+                                    <?php
+                                        if($_SESSION['activo']==true){
+                                            echo '../04_courses/user_courses.php';
+                                        } else {
+                                            echo '../04_courses/courses.php';
+                                        }
+                                    ?>
+                                    " class="btn btn-1">Learn</a>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                    <section class="row p-4">
+                        <article class="col-6">
+                            <div class="card bg-card fg-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Java Script</h5>
+                                    <p class="card-text">To create a responsive website and more interative features you need to learn Java Script.</p>                                   
+                                    <a href="
+                                    <?php
+                                        if($_SESSION['activo']==true){
+                                            echo '../04_courses/user_courses.php';
+                                        } else {
+                                            echo '../04_courses/courses.php';
+                                        }
+                                    ?>
+                                    " class="btn btn-1">Learn</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="col-6">
+                            <div class="card bg-card fg-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">PHP</h5>
+                                    <p class="card-text">The best programming language for server side and database manager.</p>
+                                    <a href="
+                                    <?php
+                                        if($_SESSION['activo']==true){
+                                            echo '../04_courses/user_courses.php';
+                                        } else {
+                                            echo '../04_courses/courses.php';
+                                        }
+                                    ?>
+                                    " class="btn btn-1">Learn</a>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </section>
             </section>
         </main>
-
         <footer class="text-center text-lg-start bg-card fg-card text-muted">
             <!-- Section: Social media -->
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -160,16 +207,16 @@
                                 Courses
                             </h6>
                             <p>
-                            <a href="../04_courses/courses.php" class="text-reset">HTML</a>
+                            <a href="./courses.php" class="text-reset">HTML</a>
                             </p>
                             <p>
-                            <a href="../04_courses/courses.php" class="text-reset">CSS</a>
+                            <a href="./courses.php" class="text-reset">CSS</a>
                             </p>
                             <p>
-                            <a href="../04_courses/courses.php" class="text-reset">Java Script</a>
+                            <a href="./courses.php" class="text-reset">Java Script</a>
                             </p>
                             <p>
-                            <a href="../04_courses/courses.php" class="text-reset">PHP</a>
+                            <a href="./courses.php" class="text-reset">PHP</a>
                             </p>
                         </div>
                         <!-- Grid column -->

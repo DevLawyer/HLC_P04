@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if($_SESSION['activo']!=true){
+    if($_SESSION['activo']==true){
         header("location:../01_index/index.php");
     }
 ?>
@@ -8,16 +8,19 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title><?php echo $_SESSION['email']?></title>
+        <title>ECA - SignUp</title>
         <link rel="icon" href="../00_resources/images/EduCodeA_Icon.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
         <link href="../00_resources/css/common.css" rel="stylesheet" >
+        
     </head>
 
     <header>
+        
+
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
             <div class="container-fluid">
                 <img src="../00_resources/images/EduCodeA_Logo.png" alt="EduCode Academy Logo" height="60" class="d-inline-block align-text-top m-4">
@@ -38,19 +41,11 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="../04_courses/courses.php">Courses</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../04_courses/user_courses.php">My Courses</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active selected" href="./user.php">Profile</a>
-                        </li>
                     </ul>
 
-                    <form class="d-flex" action="../07_php/logout.php">
-                        <button class="btn btn-light me-4" type="submit">
-                            Log out
+                    <form action="../02_login/login.php" class="me-4">
+                        <button class="btn btn-light">
+                            Log In
                         </button>
                     </form>
                 </div>
@@ -61,59 +56,42 @@
     <body>
         <!-- MAIN CONTAINER -->
         <main class="container-fluid bg-main p-5">
-            <section class="row justify-content-center">
-                <article class="card mb-3 bg-transparent border-light fg-main" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4 text-center">
-                            <img src="
-                                <?php
-                                    $i = $_SESSION['nivel'];
-                                    if ($i < 5) {
-                                        echo "../00_resources/images/lvl_bronze.png";
-                                    } elseif ($i >= 5 && $i <= 10) {
-                                        echo "../00_resources/images/lvl_silver.png";
-                                    } elseif ($i > 10) {
-                                        echo "../00_resources/images/lvl_gold.png";
-                                    }
-                                ?>
-                            " class="img-fluid rounded-start mt-4" alt="User Level">
-                            
-                            <small>Level</small><br/>
-
-                            <button class="btn btn-light m-4 fg-main bg-transparent" onclick="document.getElementById('modal_confirm').style.display='block'">Delete User</button>
-
-                            <div id="modal_confirm" class="modal">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content bg-card fg-card border-light border-2">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Confirm Delete User</h5>
+            <section class="row">
+                
+                <section class="col-6 text-center d-none d-lg-block">
+                    <img src="../00_resources/images/SignUp_Logo.png" alt="EduCode Academy Logo" class="d-inline-block align-text-top m-4 h-50 sticky-top">
+                </section>
+                <section class="col">
+                    <section class="row p-4">
+                        <article class="col">
+                            <div class="card bg-card">
+                                <div class="card-body">
+                                    <h5 class="card-title pb-4">Sign up form</h5>
+                                    <form method="post" action="../07_php/signup.php">
+                                        <div class="input-group mb-3">
+                                            <input type="email" id="email" name="email" class="form-control fg-main-2" placeholder="E-mail user." aria-label="E-mail user.">
+                                            <span class="input-group-text" id="basic-addon2">@example.com</span>
                                         </div>
-                                        <div class="modal-body">
-                                            <p>Are you sure to delete this user?</p>
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Username." aria-label="Username.">
                                         </div>
-                                        <form class="modal-footer" method="post" action="../07_php/deleteUser.php">
-                                            <button type="button" class="btn btn-secondary" onclick="document.getElementById('modal_confirm').style.display='none'">Close</button>
-                                            <button type="submit" id="submit" name="submit" class="btn btn-danger" onclick="document.getElementById('modal_confirm').style.display='none'">Delete</button>
-                                        </form>
-                                    </div>
+                                        <div class="input-group mb-3">
+                                            <input type="date" id="born_date" name="born_date" class="form-control fg-main-2">
+                                        </div>
+                                        <div class="input-group">
+                                            <p>
+                                                <button type="submit" name="submit" class="btn btn-light bg-btn-1 btn-1 me-2">Send</button>
+                                                Already have an account? <i class='bx bx-log-in' ></i> <a href="../02_login/login.php">  Log in</a>
+                                            </p>
+                                        </div>
+                                    </form>
                                 </div>
-                            </div> 
-
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <?php echo'<h5 class="card-title">'.$_SESSION['email'].'</h5>'?>
-                                <?php echo'<p class="card-text">Nombre: '.$_SESSION['nombre'].'</br>'?>
-                                <?php echo'Edad: '.$_SESSION['edad'].'</p>'?>
-                                <?php echo'<p class="card-text"><small class="text-muted">Victories: '.$_SESSION['victorias'].'</small></br>'?>
-                                <?php echo'<small class="text-muted">Defeats: '.$_SESSION['derrotas'].'</small></p>'?>
                             </div>
-                        </div>
-                    </div>
-                </article>
+                        </article>
+                    </section>
+                </section>
             </section>
         </main>
-
         <footer class="text-center text-lg-start bg-card fg-card text-muted">
             <!-- Section: Social media -->
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">

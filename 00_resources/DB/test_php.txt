@@ -1,0 +1,39 @@
+&iquest;En qu&eacute; lugar se ejecuta el c&oacute;digo PHP?
+Servidor. Ok
+Cliente (ordenador propio).
+Servidor cloud &uacute;nicamente.
+Cliente con servicios especiales.
+
+&iquest;Cu&aacute;les de estas son marcas para la inserci&oacute;n del c&oacute;digo PHP en las p&aacute;ginas HTML?
+&lt; ? y ? &gt; Ok
+&lt; php &gt;&lt; /php &gt;
+&lt;# y #&gt;
+&lt;?php&gt;&lt;/?php&gt;
+
+&iquest;En qu&eacute; atributo de un formulario especificamos la p&aacute;gina a la que se van a enviar los datos del mismo?
+name.
+file.
+action. Ok
+description.
+
+&iquest;Cu&aacute;l de estas instrucciones est&aacute; correctamente escrita en PHP?
+if (a=0) print a
+if (a==0) echo “hola mundo”; Ok
+if (a==0) { echo ok }
+if (a==0): print a;
+
+Dos de las formas de pasar los par&aacute;metros entre p&aacute;ginas PHP son:
+Require e Include.
+Get y Put.
+Post y Get. Ok
+Into e Include.
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('4', '1', '&iquest;En qu&eacute; lugar se ejecuta el c&oacute;digo PHP?', 'Servidor.', 'Cliente (ordenador propio).', 'Servidor cloud &uacute;nicamente.', 'Cliente con servicios especiales.', 'answer1');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('4', '2', '&iquest;Cu&aacute;les de estas son marcas para la inserci&oacute;n del c&oacute;digo PHP en las p&aacute;ginas HTML?', '&lt; ? y ? &gt;', '&lt; php &gt;&lt; /php &gt;', '&lt;# y #&gt;', '&lt;?php&gt;&lt;/?php&gt;', 'answer1');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('4', '3', '&iquest;En qu&eacute; atributo de un formulario especificamos la p&aacute;gina a la que se van a enviar los datos del mismo?', 'name.', 'file.', 'action.', 'description.', 'answer3');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('4', '4', '&iquest;Cu&aacute;l de estas instrucciones est&aacute; correctamente escrita en PHP?', 'if (a=0) print a', 'if (a==0) echo &quot;hola mundo&quot;;', 'if (a==0) { echo ok }', 'if (a==0): print a;', 'answer2');
+
+INSERT INTO `test` (`test`, `num_quest`, `question`, `answer1`, `answer2`, `answer3`, `answer4`, `correct`) VALUES ('4', '5', 'Dos de las formas de pasar los par&aacute;metros entre p&aacute;ginas PHP son:', 'Require e Include.', 'Get y Put.', 'Post y Get.', 'Into e Include.', 'answer3');

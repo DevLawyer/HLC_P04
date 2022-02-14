@@ -1,7 +1,7 @@
 <?php
     session_start();
     if($_SESSION['activo']==true){
-        header("location:../01_index/index.html");
+        header("location:../01_index/index.php");
     }
 
 	include 'conndb.php';
@@ -54,7 +54,7 @@
 		if ($error == FALSE)
 		{
 			insert_user($in_email, $in_name, $in_date);
-			header("location:../02_login/login.html");
+			header("location:../02_login/login.php");
 		}
 		else
 		{

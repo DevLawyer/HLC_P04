@@ -1,20 +1,20 @@
 <?php 
     session_start();
     if($_SESSION['activo']!=true){
-        header("location:../01_index/index.html");
+        header("location:../01_index/index.php");
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
+        <title>Test</title>
         <link rel="icon" href="../00_resources/images/EduCodeA_Icon.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
         <link href="../00_resources/css/common.css" rel="stylesheet" >
-        
     </head>
 
     <header>
@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <img src="../00_resources/images/EduCodeA_Logo.png" alt="EduCode Academy Logo" height="60" class="d-inline-block align-text-top m-4">
                 
-                <a class="navbar-brand" href="../01_index/index.html">
+                <a class="navbar-brand" href="../01_index/index.php">
                     Academy
                 </a>
 
@@ -34,25 +34,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="../01_index/index.html">Home</a>
+                            <a class="nav-link active" href="../01_index/index.php">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active selected" href="./user.html">Profile</a>
+                            <a class="nav-link active" href="../05_user/user.php">Profile</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="../04_courses/courses.html">Courses</a>
+                            <a class="nav-link active" href="../04_courses/courses.php">Courses</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="../04_courses/user_courses.html">My Courses</a>
+                            <a class="nav-link active" href="../04_courses/user_courses.php">My Courses</a>
                         </li>
                     </ul>
 
-                    <form class="d-flex" action="./login.html">
+                    <form class="d-flex" action="../07_php/logout.php">
                         <button class="btn btn-light me-4" type="submit">
-                            Log Out
+                            Log out
                         </button>
                     </form>
                 </div>
@@ -64,25 +64,63 @@
         <!-- MAIN CONTAINER -->
         <main class="container-fluid bg-main p-5">
             <section class="row justify-content-center">
-                <article class="card mb-3 bg-transparent border-light fg-main" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4 text-center">
-                            <img src="../00_resources/images/lvl_gold.png" class="img-fluid rounded-start mt-4" alt="User Level">
-                            <small>Level</small><br/>
-                            <button class="btn btn-light bg-btn-1 btn-1 mt-4 mb-4">Delete Profile</button>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">User e-mail</h5>
-                                <p class="card-text">Username</p>
-                                <p class="card-text"><small class="text-muted">Victories:</small></p>
-                                <p class="card-text"><small class="text-muted">Defeats:</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                <?php
+                    include '../07_php/getTest.php';
+                    $test = getTest($_SESSION['test']);
+
+                    if(array_key_exists('prev', $_POST)) {
+                        moveBack();
+                    }
+                    if(array_key_exists('next', $_POST)) {
+                        checkAnswers($test);
+                        moveForward();
+                    }
+
+                    if($_SESSION['question']-1 <= 4){
+                        echo'<form class="card mb-3 bg-transparent border-light fg-main p-4" method="POST">';
+                        echo'<h5 class="card-title mb-4">'.$_SESSION['nombre'].' - '.$_SESSION['edad'].'</h5>';
+                        echo'<h5 class="card-title mb-4">'.$_SESSION['question'].' '.$test[$_SESSION['orden'][$_SESSION['question']-1]]['question'].'</h5>';
+                        echo'<p class="card-text mb-4">';
+                        echo'<input class="me-2 mb-2" type="radio" id="testA" name="testA" value="answer1">';
+                        echo'<label for="answer1">'.$test[$_SESSION['orden'][$_SESSION['question']-1]]['answer1'].'</label><br>';
+                        echo'<input class="me-2 mb-2" type="radio" id="testA" name="testA" value="answer2">';
+                        echo'<label for="answer2">'.$test[$_SESSION['orden'][$_SESSION['question']-1]]['answer2'].'</label><br>';
+                        echo'<input class="me-2 mb-2" type="radio" id="testA" name="testA" value="answer3">';
+                        echo'<label for="answer3">'.$test[$_SESSION['orden'][$_SESSION['question']-1]]['answer3'].'</label><br>';
+                        echo'<input class="me-2 mb-2" type="radio" id="testA" name="testA" value="answer4">';
+                        echo'<label for="answer4">'.$test[$_SESSION['orden'][$_SESSION['question']-1]]['answer4'].'</label><br>';
+                        echo'</p>';
+                        
+                        echo'<div class="row">';
+                        if($_SESSION['question']-1 != 0){
+                            echo'<div class="col"><button type="submit" name="prev" class="btn btn-2 mb-2">Prev</button></div>';
+                        }
+
+                        echo'<div class="col text-end"><button type="submit" name="next" class="btn btn-2 mb-2">Next</button></div>';
+                        echo'</div>';
+                        echo'</form>';
+                    } else {
+                        echo'<form class="card mb-3 bg-transparent border-light fg-main p-4" method="POST" action="../07_php/updateAnswers.php">';
+                        echo'<h5 class="card-title mb-4">TEST FINALIZADO</h5>';
+                        echo'<p class="card-text mb-4">';
+                        echo'El test ha finalizado, su resultado a sido el siguiente:</br>';
+                        echo'Aciertos: '.$_SESSION['aciertos'].'</br>';
+                        echo'Errores: '.$_SESSION['errores'].'</br>';
+                        echo'Resultado final:';
+                        if($_SESSION['aciertos'] >= $_SESSION['errores']){
+                            echo ' VICTORIA !';
+                        } else {
+                            echo ' DERROTA !';
+                        }
+                        echo'</p>';
+                        echo'<div class="col text-end"><button type="submit" name="submit" class="btn btn-2 mb-2">Finish</button></div>';
+                        echo'</div>';
+                        echo'</form>';
+                    }                               
+                ?>
             </section>
         </main>
+        
         <footer class="text-center text-lg-start bg-card fg-card text-muted">
             <!-- Section: Social media -->
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -129,16 +167,16 @@
                                 Courses
                             </h6>
                             <p>
-                            <a href="../04_courses/courses.html" class="text-reset">HTML</a>
+                            <a href="../04_courses/courses.php" class="text-reset">HTML</a>
                             </p>
                             <p>
-                            <a href="../04_courses/courses.html" class="text-reset">CSS</a>
+                            <a href="../04_courses/courses.php" class="text-reset">CSS</a>
                             </p>
                             <p>
-                            <a href="../04_courses/courses.html" class="text-reset">Java Script</a>
+                            <a href="../04_courses/courses.php" class="text-reset">Java Script</a>
                             </p>
                             <p>
-                            <a href="../04_courses/courses.html" class="text-reset">PHP</a>
+                            <a href="../04_courses/courses.php" class="text-reset">PHP</a>
                             </p>
                         </div>
                         <!-- Grid column -->

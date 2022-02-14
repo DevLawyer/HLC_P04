@@ -1,14 +1,14 @@
 <?php 
     session_start();
     if($_SESSION['activo']!=true){
-        header("location:../01_index/index.html");
+        header("location:../01_index/index.php");
     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>ECA - MyCourses</title>
+        <title>MyCourses</title>
         <link rel="icon" href="../00_resources/images/EduCodeA_Icon.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,13 +19,11 @@
     </head>
 
     <header>
-        
-
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
             <div class="container-fluid">
                 <img src="../00_resources/images/EduCodeA_Logo.png" alt="EduCode Academy Logo" height="60" class="d-inline-block align-text-top m-4">
                 
-                <a class="navbar-brand" href="../01_index/index.html">
+                <a class="navbar-brand" href="../01_index/index.php">
                     Academy
                 </a>
 
@@ -35,11 +33,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../01_index/index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" href="../01_index/index.php">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="./courses.html">Courses</a>
+                            <a class="nav-link active" href="./courses.php">Courses</a>
                         </li>
 
                         <li class="nav-item">
@@ -51,9 +49,9 @@
                         </li>
                     </ul>
                    
-                    <form class="d-flex" action="./login.html">
+                    <form class="d-flex" action="../07_php/logout.php">
                         <button class="btn btn-light me-4" type="submit">
-                            Log Out
+                            Log out
                         </button>
                     </form>
                 </div>
@@ -65,17 +63,126 @@
         <!-- MAIN CONTAINER -->
         <main class="container-fluid bg-main p-5">
             <section class="row">
-                <article class="col h-100 text-center">
-                    <h1 class="fg-main">
-                        MY COURSES
-                    </h1>
-
-                    
+                <article class="col-md-3">
+                    <div class="card bg-card fg-card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">HTML</h5>
+                            <p class="card-text">Learn all you need to create a great web site and become a web developer.</p>
+                            
+                            <div class="row">
+                                <form class="d-flex" method="POST" action="../07_php/user_courses.php">
+                                    <?php 
+                                        $i = $_SESSION['curso1'];
+                                        if($i == 0){
+                                            echo '<div class="col-md">';
+                                            echo '<button type="submit" name="subscribe" value="course1" class="btn btn-1 mb-2">Subscribe</button>';
+                                            echo '</div>';
+                                        } else {
+                                            echo '<div class="col-md">';
+                                            echo '<button type="submit" name="unsubscribe" value="course1" class="btn btn-1 mb-2">Unsubscribe</button>';
+                                            echo '</div>';
+                                            echo '<div class="col-md text-end">';
+                                            echo '<button type="submit" name="test" value="test1" class="btn btn-1 mb-2">Test</button>';
+                                            echo '</div>';
+                                        }
+                                    ?>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </article>
+                
+                <article class="col-md-3">
+                    <div class="card bg-card fg-card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">CSS</h5>
+                            <p class="card-text">If you want to create a website with awesome design learn CSS to do this.</p>
+                            
+                            <div class="row">
+                            <form class="d-flex" method="POST" action="../07_php/user_courses.php">
+                                    <?php 
+                                        $i = $_SESSION['curso2'];
+                                        if($i == 0){
+                                            echo '<div class="col-md">';
+                                            echo '<button type="submit" name="subscribe" value="course2" class="btn btn-1 mb-2">Subscribe</button>';
+                                            echo '</div>';
+                                        } else {
+                                            echo '<div class="col-md">';
+                                            echo '<button type="submit" name="unsubscribe" value="course2" class="btn btn-1 mb-2">Unsubscribe</button>';
+                                            echo '</div>';
+                                            echo '<div class="col-md text-end">';
+                                            echo '<button type="submit" name="test" value="test2" class="btn btn-1 mb-2">Test</button>';
+                                            echo '</div>';
+                                        }
+                                    ?>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="col-md-3">
+                    <div class="card bg-card fg-card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Java Script</h5>
+                            <p class="card-text">To create a responsive website and more interative features you need to learn Java Script.</p>
+                            
+                            <div class="row">
+                            <form class="d-flex" method="POST" action="../07_php/user_courses.php">
+                                    <?php 
+                                        $i = $_SESSION['curso3'];
+                                        if($i == 0){
+                                            echo '<div class="col-md">';
+                                            echo '<button type="submit" name="subscribe" value="course3" class="btn btn-1 mb-2">Subscribe</button>';
+                                            echo '</div>';
+                                        } else {
+                                            echo '<div class="col-md">';
+                                            echo '<button type="submit" name="unsubscribe" value="course3" class="btn btn-1 mb-2">Unsubscribe</button>';
+                                            echo '</div>';
+                                            echo '<div class="col-md text-end">';
+                                            echo '<button type="submit" name="test" value="test3" class="btn btn-1 mb-2">Test</button>';
+                                            echo '</div>';
+                                        }
+                                    ?>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="col-md-3">
+                    <div class="card bg-card fg-card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">PHP</h5>
+                            <p class="card-text">The best programming language for server side and database manager.</p>
+                            
+                            <div class="row">
+                            <form class="d-flex" method="POST" action="../07_php/user_courses.php">
+                                    <?php 
+                                        $i = $_SESSION['curso4'];
+                                        if($i == 0){
+                                            echo '<div class="col-md">';
+                                            echo '<button type="submit" name="subscribe" value="course4" class="btn btn-1 mb-2">Subscribe</button>';
+                                            echo '</div>';
+                                        } else {
+                                            echo '<div class="col-md">';
+                                            echo '<button type="submit" name="unsubscribe" value="course4" class="btn btn-1 mb-2">Unsubscribe</button>';
+                                            echo '</div>';                                            
+                                            echo '<div class="col-md text-end">';
+                                            echo '<button type="submit" name="test" value="test4" class="btn btn-1 mb-2">Test</button>';
+                                            echo '</div>';
+                                        }
+                                    ?>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                </section>
             </section>
-               
-    
         </main>
+
         <footer class="text-center text-lg-start bg-card fg-card text-muted">
             <!-- Section: Social media -->
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -122,16 +229,16 @@
                                 Courses
                             </h6>
                             <p>
-                            <a href="./courses.html" class="text-reset">HTML</a>
+                            <a href="./courses.php" class="text-reset">HTML</a>
                             </p>
                             <p>
-                            <a href="./courses.html" class="text-reset">CSS</a>
+                            <a href="./courses.php" class="text-reset">CSS</a>
                             </p>
                             <p>
-                            <a href="./courses.html" class="text-reset">Java Script</a>
+                            <a href="./courses.php" class="text-reset">Java Script</a>
                             </p>
                             <p>
-                            <a href="./courses.html" class="text-reset">PHP</a>
+                            <a href="./courses.php" class="text-reset">PHP</a>
                             </p>
                         </div>
                         <!-- Grid column -->

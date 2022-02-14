@@ -1,7 +1,7 @@
 <?php
     session_start();
     if($_SESSION['activo']==FALSE){
-        header("location:../01_index/index.html");
+        header("location:../01_index/index.php");
     }
 
 	include 'conndb.php';
@@ -14,5 +14,5 @@
 
     mysqli_close($con);
 
-    header("location:../01_index/index.html");
+    include './logout.php';
 ?>

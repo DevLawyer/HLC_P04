@@ -13,7 +13,7 @@
 
         if ($error == TRUE)
         {
-            header("location:../01_index/index.html");
+            header("location:../01_index/index.php");
         }
         else
         {
@@ -29,16 +29,25 @@
                 $jug = obtener_datos_usuario($email);
                 $_SESSION['email']=$jug['email'];
                 $_SESSION['nombre']=$jug['nombre'];
+				$_SESSION['edad']= calculateAge($jug['fecha_nac']);
                 $_SESSION['victorias']=$jug['IFNULL(a_good,0)'];
-                $_SESSION['perdidas']=$jug['IFNULL(a_bad,0)'];
+                $_SESSION['derrotas']=$jug['IFNULL(a_bad,0)'];
                 $_SESSION['nivel']=$jug['IFNULL(a_good,0)']-$jug['IFNULL(a_bad,0)'];
                 $_SESSION['activo']=true;
-                $_SESSION['sesionJuego']=true;
+				$_SESSION['curso1']=$jug['course1'];				
+				$_SESSION['curso2']=$jug['course2'];
+				$_SESSION['curso3']=$jug['course3'];
+				$_SESSION['curso4']=$jug['course4'];
+				$_SESSION['test']=0;
+				$_SESSION['question']=0;
+				$_SESSION['aciertos']=0;
+				$_SESSION['errores']=0;
+				$_SESSION['orden'];
                 header("location:../05_user/user.php");
             }
             else
             {
-                header("location:../02_login/login.html");
+                header("location:../02_login/login.php");
             }            
         }
 
@@ -53,7 +62,7 @@
 	{
 		$con=connection();
 
-		$sql="select email, nombre, fecha_nac, IFNULL(a_good,0), IFNULL(a_bad,0) from users where email = '" . $email . "';";
+		$sql="select email, nombre, fecha_nac, IFNULL(a_good,0), IFNULL(a_bad,0), course1, course2, course3, course4 from users where email = '" . $email . "';";
 		$result=mysqli_query($con, $sql);
         $data=mysqli_fetch_assoc($result);
         
@@ -108,4 +117,8 @@
 		return $error;
 	}
 
+	function calculateAge($born){
+		list($Y,$m,$d) = explode("-",$born);
+		return( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
+	}
 ?>

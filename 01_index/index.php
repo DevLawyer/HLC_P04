@@ -1,14 +1,11 @@
 <?php 
     session_start();
-    if($_SESSION['activo']!=true){
-        header("location:../01_index/index.php");
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title><?php echo $_SESSION['email']?></title>
+        <title>EduCode - Academy</title>
         <link rel="icon" href="../00_resources/images/EduCodeA_Icon.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,11 +15,10 @@
     </head>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom p-4">
             <div class="container-fluid">
-                <img src="../00_resources/images/EduCodeA_Logo.png" alt="EduCode Academy Logo" height="60" class="d-inline-block align-text-top m-4">
                 
-                <a class="navbar-brand" href="../01_index/index.php">
+                <a class="navbar-brand" href="./index.php">
                     Academy
                 </a>
 
@@ -32,27 +28,46 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="../01_index/index.php">Home</a>
+                            <a class="nav-link active selected" href="./index.php">Home</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link active" href="../04_courses/courses.php">Courses</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../04_courses/user_courses.php">My Courses</a>
-                        </li>
+                        <?php
+                            if($_SESSION['activo']==true){
+                                echo '<li class="nav-item">';
+                                echo'<a class="nav-link active" href="../04_courses/user_courses.php">My Courses</a>';
+                                echo'</li>';
 
-                        <li class="nav-item">
-                            <a class="nav-link active selected" href="./user.php">Profile</a>
-                        </li>
+                                echo'<li class="nav-item">';
+                                echo'<a class="nav-link active" href="../05_user/user.php">Profile</a>';
+                                echo'</li>';
+                            }
+                        ?>
                     </ul>
 
-                    <form class="d-flex" action="../07_php/logout.php">
-                        <button class="btn btn-light me-4" type="submit">
-                            Log out
-                        </button>
-                    </form>
+                    <?php
+                        if($_SESSION['activo']!=true){
+                            echo'<form class="d-flex me-4" action="../03_signup/signup.php">';
+                            echo'<button class="btn btn-light">';
+                            echo'Sign up';
+                            echo'</button>';
+                            echo'</form>';
+                            echo'<form action="../02_login/login.php">';
+                            echo'<button class="btn btn-light me-4">';
+                            echo'Log in';
+                            echo'</button>';
+                            echo'</form>';
+                        } else {
+                            echo'<form action="../07_php/logout.php">';
+                            echo'<button class="btn btn-light me-4">';
+                            echo'Log out';
+                            echo'</button>';
+                            echo'</form>';
+                        }
+                    ?>
                 </div>
             </div>
         </nav>
@@ -61,59 +76,38 @@
     <body>
         <!-- MAIN CONTAINER -->
         <main class="container-fluid bg-main p-5">
-            <section class="row justify-content-center">
-                <article class="card mb-3 bg-transparent border-light fg-main" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4 text-center">
-                            <img src="
-                                <?php
-                                    $i = $_SESSION['nivel'];
-                                    if ($i < 5) {
-                                        echo "../00_resources/images/lvl_bronze.png";
-                                    } elseif ($i >= 5 && $i <= 10) {
-                                        echo "../00_resources/images/lvl_silver.png";
-                                    } elseif ($i > 10) {
-                                        echo "../00_resources/images/lvl_gold.png";
-                                    }
-                                ?>
-                            " class="img-fluid rounded-start mt-4" alt="User Level">
-                            
-                            <small>Level</small><br/>
-
-                            <button class="btn btn-light m-4 fg-main bg-transparent" onclick="document.getElementById('modal_confirm').style.display='block'">Delete User</button>
-
-                            <div id="modal_confirm" class="modal">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content bg-card fg-card border-light border-2">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Confirm Delete User</h5>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Are you sure to delete this user?</p>
-                                        </div>
-                                        <form class="modal-footer" method="post" action="../07_php/deleteUser.php">
-                                            <button type="button" class="btn btn-secondary" onclick="document.getElementById('modal_confirm').style.display='none'">Close</button>
-                                            <button type="submit" id="submit" name="submit" class="btn btn-danger" onclick="document.getElementById('modal_confirm').style.display='none'">Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> 
-
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <?php echo'<h5 class="card-title">'.$_SESSION['email'].'</h5>'?>
-                                <?php echo'<p class="card-text">Nombre: '.$_SESSION['nombre'].'</br>'?>
-                                <?php echo'Edad: '.$_SESSION['edad'].'</p>'?>
-                                <?php echo'<p class="card-text"><small class="text-muted">Victories: '.$_SESSION['victorias'].'</small></br>'?>
-                                <?php echo'<small class="text-muted">Defeats: '.$_SESSION['derrotas'].'</small></p>'?>
-                            </div>
-                        </div>
-                    </div>
+            <section class="row">
+                <article class="col text-center">
+                    <img class="w-25" src="../00_resources/images/EduCodeA_Logo.png" alt="EduCode Academy Logo">
+                    <h1 class="fg-main m-4 bg-grad">It is Never Too Late to Learn!</h1>
                 </article>
             </section>
+            <section class="row justify-content-center mt-4">
+                <div class="col-sm-3 bg-grad-card">
+                    <a href="../03_signup/signup.php">
+                        <div class="card bg-transparent border-0 p-2">
+                            <img class="card-image-top" src="../00_resources/images/SignUp_Logo.png" alt="EduCode Academy Logo">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-3 bg-grad-card">
+                    <a href="../04_courses/courses.php">
+                        <div class="card bg-transparent border-0 p-2">
+                            <img class="card-image-top" src="../00_resources/images/Courses_Logo.png" alt="EduCode Academy Logo">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-3 bg-grad-card">
+                    <a href="../02_login/login.php">
+                        <div class="card bg-transparent border-0 p-2">
+                            <img class="card-image-top" src="../00_resources/images/LogIn_Logo.png" alt="EduCode Academy Logo">
+                        </div>
+                    </a>
+                </div>
+            </section>
+               
+    
         </main>
-
         <footer class="text-center text-lg-start bg-card fg-card text-muted">
             <!-- Section: Social media -->
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
@@ -214,8 +208,7 @@
             <a class="text-reset fw-bold" href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12">EUPL-1.2</a>
             </div>
             <!-- Section: License -->
-        </footer>
-
+        </fhref="../04_courses/courses.php"
         <!-- SCRIPTS SECTION -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

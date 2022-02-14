@@ -8,5 +8,5 @@
 		);
 	}
 	session_destroy();
-	header("location:../02_login/login.html");
+	header("location:../01_index/index.php");
 ?>
